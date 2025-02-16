@@ -1,70 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Armazenamento de Arquivos e Provas</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Armazenador de Provas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
+<body class="bg-light">
 
-<header>
-    <h1>Armazenamento de Arquivos e Provas</h1>
-</header>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Armazenador de Provas</h2>
 
-<nav>
-    <a href="#" onclick="showTab('quimica')">Química</a>
-    <a href="#" onclick="showTab('meioAmbiente')">Meio Ambiente</a>
-</nav>
-
-<div class="container">
-    <div id="quimica" class="aba active">
-        <h2>Química</h2>
-        <div class="semestre">
-            <h3>1º Semestre</h3>
-            <p>Arquivos e provas do 1º semestre de Química.</p>
-        </div>
-        <div class="semestre">
-            <h3>2º Semestre</h3>
-            <p>Arquivos e provas do 2º semestre de Química.</p>
-        </div>
-        <div class="semestre">
-            <h3>3º Semestre</h3>
-            <p>Arquivos e provas do 3º semestre de Química.</p>
-        </div>
-        <div class="semestre">
-            <h3>4º Semestre</h3>
-            <p>Arquivos e provas do 4º semestre de Química.</p>
-        </div>
-        <div class="semestre">
-            <h3>5º Semestre</h3>
-            <p>Arquivos e provas do 5º semestre de Química.</p>
-        </div>
-        <div class="semestre">
-            <h3>6º Semestre</h3>
-            <p>Arquivos e provas do 6º semestre de Química.</p>
-        </div>
+    <!-- Botões dos cursos -->
+    <div class="d-flex justify-content-center gap-3">
+        <button class="btn btn-primary" onclick="mostrarSemestres('quimica')">Química</button>
+        <button class="btn btn-success" onclick="mostrarSemestres('meioAmbiente')">Meio Ambiente</button>
     </div>
 
-    <div id="meioAmbiente" class="aba">
-        <h2>Meio Ambiente</h2>
-        <div class="semestre">
-            <h3>1º Semestre</h3>
-            <p>Arquivos e provas do 1º semestre de Meio Ambiente.</p>
+    <!-- Semestres (Ocultos por padrão) -->
+    <div id="semestresContainer" class="mt-4" style="display: none;">
+        <h4 id="cursoTitulo" class="text-center"></h4>
+        <div class="accordion" id="accordionSemestres">
+            <!-- Semestres são adicionados aqui pelo JavaScript -->
         </div>
-        <div class="semestre">
-            <h3>2º Semestre</h3>
-            <p>Arquivos e provas do 2º semestre de Meio Ambiente.</p>
-        </div>
-        <div class="semestre">
-            <h3>3º Semestre</h3>
-            <p>Arquivos e provas do 3º semestre de Meio Ambiente.</p>
-        </div>
-        <div class="semestre">
-            <h3>4º Semestre</h3>
-            <p>Arquivos e provas do 4º semestre de Meio Ambiente.</p>
-        </div>
-        <div class="semestre">
-            <h3>5º Semestre</h3>
-           
+    </div>
+</div>
+
+<script>
+    function mostrarSemestres(curso) {
+        let cursoNome = curso === "quimica" ? "Química" : "Meio Ambiente";
+        document.getElementById("cursoTitulo").innerText = cursoNome;
+        document.getElementById("semestresContainer").style.display = "block";
+
+        let semestresHTML = "";
+        for (let i = 1; i <= 6; i++) {
+            semestresHTML += `
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading${curso}${i}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${curso}${i}" aria-expanded="false">
+                            ${i}º Semestre
+                        </button>
+                    </h2>
+                    <div id="collapse${curso}${i}" class="accordion-collapse collapse" data-bs-parent="#accordionSemestres">
+                        <div class="accordion-body">
+                            <ul>
+                                <li><a href="#" class="text-decoration-none">Prova 1</a></li>
+                                <li><a href="#" class="text-decoration-none">Prova 2</a></li>
+                                <li><a href="#" class="text-decoration-none">Prova 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        document.getElementById("accordionSemestres").innerHTML = semestresHTML;
+    }
+</script>
+
+</body>
+</html>
