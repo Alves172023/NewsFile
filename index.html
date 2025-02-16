@@ -3,9 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página</title>
+    <title>Armazenamento de Arquivos e Provas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #35424a;
+            padding: 10px 15px;
+            border: 1px solid #35424a;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #35424a;
+            color: #ffffff;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .semestre {
+            background: #ffffff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .aba {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- Conteúdo da página -->
-</body>
-</html>
+
+<header>
+    <h1>Armazenamento de Arquivos e Provas</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="showTab('quimica')">Química</a>
+    <a href="#" onclick="showTab('meioAmbiente')">Meio Ambiente</a>
+</nav>
+
+<div class="container">
+    <div id="quimica" class="aba active">
+        <h2>Química</h2>
+        <div class="semestre">
+            <h3>1º Semestre</h3>
+            <p>Arquivos e provas do 1º semestre de Química.</p>
+        </div>
+        <div class="semestre">
+            <h3>2º Semestre</h3>
+            <p>Arquivos e provas do 2º semestre de Química.</p>
+        </div>
+        <div class="semestre">
+            <h3>3º Semestre</h3>
+            <p>Arquivos e provas do 3º semestre de Química.</p>
+        </div>
+        <div class="semestre">
+            <h3>4º Semestre</h3>
+            <p>Arquivos e provas do 4º semestre de Química.</p>
+        </div>
+        <div class="semestre">
+            <h3>5º Semestre</h3>
+            <p>Arquivos e provas do 5º semestre de Química.</p>
+        </div>
+        <div class="semestre">
+            <h3>6º Semestre</h3>
+            <p>Arquivos e provas do 6º semestre de Química.</p>
+        </div>
+    </div>
+
+    <div id="meioAmbiente" class="aba">
+        <h2>Meio Ambiente</h2>
+        <div class="semestre">
+            <h3>1º Semestre</h3>
+            <p>Arquivos e provas do 1º semestre de Meio Ambiente.</p>
+        </div>
+        <div class="semestre">
+            <h3>2º Semestre</h3>
+            <p>Arquivos e provas do 2º semestre de Meio Ambiente.</p>
+        </div>
+        <div class="semestre">
+            <h3>3º Semestre</h3>
+            <p>Arquivos e provas do 3º semestre de Meio Ambiente.</p>
+        </div>
+        <div class="semestre">
+            <h3>4º Semestre</h3>
+            <p>Arquivos e provas do 4º semestre de Meio Ambiente.</p>
+        </div>
+        <div class="semestre">
+            <h3>5º Semestre</h3>
+           
